@@ -14,24 +14,12 @@ a4: $(OBJS)
 	$(GCC) $(TESTFLAGS) -c $*.c
 
 testmemory: a4
-	$(VAL) ./a4 10
+	$(VAL) ./a4 open
 
 testall: test1 test2 test3 test4 test5
 
 test1: a4
-	./a4 10
-
-test2: a4
-	./a4 90
-
-test3: a4
-	./a4 17
-
-test4: a4
-	./a4 33
-
-test5: a4
-	./a4 2
+	./a4 "open 0"
 
 clean:
 	rm -f a4 *.o *.txt output? *~
