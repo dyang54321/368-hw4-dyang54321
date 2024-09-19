@@ -1,0 +1,37 @@
+WARNING = -Wall -Wshadow --pedantic
+ERROR = -Wvla -Werror
+GCC = gcc -std=c99 -g $(WARNING) $(ERROR)
+VAL = valgrind --tool=memcheck --log-file=memcheck.txt --leak-check=full --verbose
+
+TESTFLAGS = 
+SRCS = main.c a4.c
+OBJS = $(SRCS:%.c=%.o)
+
+a4: $(OBJS)
+	$(GCC) $(TESTFLAGS) $(OBJS) -o a4
+
+.c.o:
+	$(GCC) $(TESTFLAGS) -c $*.c
+
+testmemory: a4
+	$(VAL) ./a4 10
+
+testall: test1 test2 test3 test4 test5
+
+test1: a4
+	./a4 10
+
+test2: a4
+	./a4 90
+
+test3: a4
+	./a4 17
+
+test4: a4
+	./a4 33
+
+test5: a4
+	./a4 2
+
+clean:
+	rm -f a4 *.o *.txt output? *~
