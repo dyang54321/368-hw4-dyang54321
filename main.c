@@ -4,5 +4,5 @@
 #include "a4.h"
 
 int main(void){
-s
+    printf("init");
 }

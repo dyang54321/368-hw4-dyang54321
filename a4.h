@@ -4,7 +4,7 @@
 
 typedef struct Node {
     int window;
-    Node * next;
+    struct Node * next;
 } Node;
 
 void open(Node * head, int window);
