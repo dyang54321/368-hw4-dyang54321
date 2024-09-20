@@ -3,7 +3,7 @@ ERROR = -Wvla -Werror
 GCC = gcc -std=c99 -g $(WARNING) $(ERROR)
 VAL = valgrind --tool=memcheck --log-file=memcheck.txt --leak-check=full --verbose
 
-TESTFLAGS = 
+TESTFLAGS = -DPRINT_WHOLE
 SRCS = main.c a4.c
 OBJS = $(SRCS:%.c=%.o)
 
@@ -14,7 +14,7 @@ a4: $(OBJS)
 	$(GCC) $(TESTFLAGS) -c $*.c
 
 testmemory: a4
-	$(VAL) ./a4 open
+	$(VAL) ./a4
 
 testall: test1 test2 test3 test4 test5
 

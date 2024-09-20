@@ -3,13 +3,14 @@
 #include <stdlib.h>
 
 typedef struct Node {
-    int window;
-    struct Node * next;
+    int ID; // window ID    
+    struct Node * next; // next node
 } Node;
 
-void open(Node * head, int window);
+Node * open(Node * head, int window);
 void close();
 void swap();
 void listPrint(Node * head);
+void printWhole(Node * head);
 
 #endif
