@@ -6,7 +6,7 @@
 int main(void){
     // init
     Node * head = malloc(sizeof(Node)); // allocating memory for head
-    char * initc = malloc(sizeof(*initc)); // allocating memory for initial command
+    char * initc = malloc(sizeof(char*)); // allocating memory for initial command
     int initID; // initial window ID
     scanf("%s %d", initc, &initID); // scanning initial command/ID
     int found; // node found or not in close function
@@ -30,7 +30,7 @@ int main(void){
     // window list
     while(head != NULL){ // while the list is not empty
         // setup
-        char * command = malloc(sizeof(*command)); // allocation for command string
+        char * command = malloc(sizeof(char*)); // allocation for command string
         int ID; // window value
         scanf("%s %d", command, &ID); // scanning command and window id
 
