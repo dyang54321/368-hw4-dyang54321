@@ -8,9 +8,10 @@ typedef struct Node {
 } Node;
 
 Node * open(Node * head, int window);
-void close();
-void swap();
+Node * close(Node * head, int target);
 void listPrint(Node * head);
 void printWhole(Node * head);
+void swap();
+
 
 #endif

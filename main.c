@@ -38,6 +38,10 @@ int main(void){
             head = open(head, ID); // enqueue ID and set head
         }
 
+        else if(!strcmp(command, "close")){
+            head = close(head, ID); // remove window ID
+        }
+
 #ifdef LIST_PRINT
         // print
         listPrint(head); // print head
