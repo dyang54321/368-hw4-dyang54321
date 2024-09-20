@@ -59,7 +59,7 @@ int main(void){
 #endif
 
 #ifdef PRINT_WHOLE
-        printWhole(head);
+        printWhole(head); // print whole
 #endif
 
         free(command); // freeing input string
