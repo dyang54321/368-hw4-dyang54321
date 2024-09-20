@@ -13,5 +13,4 @@ Node * swap(Node * head, int target);
 void listPrint(Node * head);
 void printWhole(Node * head);
 
-
 #endif
