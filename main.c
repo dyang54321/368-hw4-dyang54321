@@ -9,9 +9,10 @@ int main(void){
     char * initc = malloc(sizeof(*initc)); // allocating memory for initial command
     int initID; // initial window ID
     scanf("%s %d", initc, &initID); // scanning initial command/ID
+    int found; // node found or not in close function
 
     // command logic
-    if(!strcmp(initc, "open")){ // if initial command is open
+    if(initc[0] == 'o'){ // if initial command is open
         head->ID = initID; // initialize value
         head->next = NULL; // connect next
     }
@@ -34,13 +35,23 @@ int main(void){
         scanf("%s %d", command, &ID); // scanning command and window id
 
         // command logic
-        if(!strcmp(command, "open")){
+#ifdef OPEN
+        if(command[0] == 'o'){ // open
             head = open(head, ID); // enqueue ID and set head
         }
+#endif
 
-        else if(!strcmp(command, "close")){
-            head = close(head, ID); // remove window ID
+#ifdef CLOSE
+        else if(command[0] == 'c'){ // close
+            head = close(head, ID, &found); // remove window ID and set head
         }
+#endif 
+
+#ifdef SWITCH
+        else{ // switch (assumming all inputs are valid)
+            head = swap(head, ID); // swapping window ID to front and set head
+        }
+#endif
 
 #ifdef LIST_PRINT
         // print
